@@ -1,0 +1,77 @@
+#include "Pole.h"
+#include "Enums.h"
+#include "Przedmiot.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+Pole::Pole()
+{
+	int n;
+	n = rand() % 6 + 1;
+	if (n == 1 || n == 2 || n == 3)
+	{
+		rodzaj = Polana;
+		opis = "Stoisz teraz na polanie (P).";
+		kolor = Zielony;
+	}
+	if (n == 4 || n == 5)
+	{
+		rodzaj = Woda;
+		opis = "Jesteœ teraz w wodzie (W).";
+		kolor = Niebieski;
+	}
+	if (n == 6)
+	{
+		rodzaj = Skaly;
+		opis = "Na skaly nie mozna wejsc (S).";
+		kolor = Bialy;
+	}
+
+	int a;
+	a = rand() % 3+1;
+	if(a == 1)
+	{ 
+		czyJestPrzedmiot = true;
+	}
+	else
+	{
+		czyJestPrzedmiot = false;
+	}
+
+	if (czyJestPrzedmiot == true && ToString(rodzaj) == ToString(Polana))
+	{
+		przedmiot = new Przedmiot;
+	}
+	else
+	{
+		czyJestPrzedmiot = false;
+	}
+
+}
+
+char Pole::getSkrot()
+{
+	return ToChar(rodzaj);
+}
+
+string Pole::getNazwa()
+{
+	return ToString(rodzaj);
+}
+
+string Pole::getOpis()
+{
+	return opis;
+}
+
+Kolor Pole::getKolor()
+{
+	return kolor;
+}
+
+bool Pole::getCzyJestPrzedmiot()
+{
+	return czyJestPrzedmiot;
+}
