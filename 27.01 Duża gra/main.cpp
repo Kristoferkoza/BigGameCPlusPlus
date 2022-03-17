@@ -88,14 +88,6 @@ int main()
     cout << endl;
     cout << endl;
 
-    /*Plansza plansza1(20);
-    plansza1.wyswietlPlansze();
-    cout << "test";
-    Sleep(5000);
-    system("cls");
-
-    plansza1.wyswietlPlansze();*/
-
     Rozgrywka rozgrywka1(20, "Adam", "Kamil");
     rozgrywka1.startRozgrywki();
 
