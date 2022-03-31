@@ -1,6 +1,7 @@
 #include "Pole.h"
 #include "Enums.h"
 #include "Przedmiot.h"
+#include "Rozgrywka.h"
 #include <iostream>
 #include <string>
 
@@ -74,4 +75,14 @@ Kolor Pole::getKolor()
 bool Pole::getCzyJestPrzedmiot()
 {
 	return czyJestPrzedmiot;
+}
+
+Przedmiot Pole::getPrzedmiot()
+{
+	return *przedmiot;
+}
+
+void Pole::zmienCzyJestPrzedmiot(bool zmiana)
+{
+	czyJestPrzedmiot = zmiana;
 }

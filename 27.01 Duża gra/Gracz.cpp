@@ -7,8 +7,8 @@ using namespace std;
 Gracz::Gracz(string _nazwa, int _x, int _y, int _id)
 {
 	nazwa = _nazwa;
-	iloscPunktow = 5;
-	punktyRuchu = 3;
+	iloscPunktow = 0;
+	punktyRuchu = 5;
 	x = _x;
 	y = _y;
 	id = _id;
@@ -70,4 +70,14 @@ int Gracz::czyJestGracz(int _x, int _y)
 	{
 		return 0;
 	}
+}
+
+void Gracz::zmienPunktyRuchu(int a)
+{
+	punktyRuchu = punktyRuchu + a;
+}
+
+void Gracz::zmienIloscPunktow(int a)
+{
+	iloscPunktow = iloscPunktow + a;
 }

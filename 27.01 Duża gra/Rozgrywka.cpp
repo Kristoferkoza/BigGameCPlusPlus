@@ -13,6 +13,7 @@
 #define KEY_DOWN 80
 #define KEY_LEFT 75
 #define KEY_RIGHT 77
+#define q 113
 
 using namespace std;
 
@@ -56,46 +57,172 @@ Rozgrywka::Rozgrywka(int n, string nazwa1, string nazwa2)
 
 void Rozgrywka::startRozgrywki()
 {
-	turaGracza(player1);
+	Gracz* player;
+	koniecRozgrywki = false;
+	while (player1->getIloscPunktow() < 20 && player2->getIloscPunktow() < 20 && koniecRozgrywki == false)
+	{
+		player = player1;
+		cout << endl << "Teraz jest tura gracza 1." << endl;
+		cout << endl << "Twoje punkty ruchu: " << player->getPunktyRuchu() << ". " << endl;
+		cout << "Twoje zdobyte punkty: " << player->getIloscPunktow() << ". " << endl;
+		cout << "Czy chcesz wykonac ruch? Jesli tak, wpisz a. Jesli nie, wpisz q: ";
+		cin >> czyDalej;
+		while (player->getPunktyRuchu() > 0 && czyDalej != 'q')
+		{
+			ruchGracza(player1);
+			if (koniecRozgrywki == true)
+			{
+				break;
+			}
+			if (player->getPunktyRuchu() != 0)
+			{
+				cout << endl << "Twoje punkty ruchu: " << player->getPunktyRuchu() << ". " << endl;
+				cout << "Twoje zdobyte punkty: " << player->getIloscPunktow() << ". " << endl;
+				cout << "Jesli chcesz zakonczyc swoja ture, napisz q. Aby kontynuowac ruch wskaz kierunek ruchu wybierajac odpowiednia strzalke.";
+			}
+		}
+		if (koniecRozgrywki == true)
+		{
+			break;
+		}
+		player->zmienPunktyRuchu(5);
+		
+
+		player = player2;
+		cout << endl << "Teraz jest tura gracza 2." << endl;
+		czyDalej = 'a';
+		cout << endl << "Twoje punkty ruchu: " << player->getPunktyRuchu() << ". " << endl;
+		cout << "Twoje zdobyte punkty: " << player->getIloscPunktow() << ". " << endl;
+		cout << "Czy chcesz wykonac ruch? Jesli tak, wpisz a. Jesli nie, wpisz q: ";
+		cin >> czyDalej;
+		while (player->getPunktyRuchu() > 0 && czyDalej != 'q')
+		{
+			ruchGracza(player2);
+			if (koniecRozgrywki == true)
+			{
+				break;
+			}
+			if (player->getPunktyRuchu() != 0)
+			{
+				cout << endl << "Twoje punkty ruchu: " << player->getPunktyRuchu() << ". " << endl;
+				cout << "Twoje zdobyte punkty: " << player->getIloscPunktow() << ". " << endl;
+				cout << "Jesli chcesz zakonczyc swoja ture, napisz q. Aby kontynuowac ruch wskaz kierunek ruchu wybierajac odpowiednia strzalke.";
+			}
+		}
+		player->zmienPunktyRuchu(5);
+	}
+	if (player1->getIloscPunktow() >= 20)
+	{
+		cout << endl << "Gracz 1 wygrywa!";
+	}
+	if (player2->getIloscPunktow() >= 20)
+	{
+		cout << endl << "Gracz 2 wygrywa!";
+	}
+	if (koniecRozgrywki == true)
+	{
+		cout << endl << "Walka!" << endl;
+		if (player1->getIloscPunktow() > player2->getIloscPunktow())
+		{
+			cout << "Gracz 1 wygrywa pojedynek, wiec zostaje zwyciezca!" << endl;
+			cout << "Gracz1: " << player1->getIloscPunktow() << ". Gracz2: " << player2->getIloscPunktow() << ".";
+		}
+		if (player1->getIloscPunktow() < player2->getIloscPunktow())
+		{
+			cout << "Gracz 2 wygrywa pojedynek, wiec zostaje zwyciezca!" << endl;
+			cout << "Gracz1: " << player1->getIloscPunktow() << ". Gracz2: " << player2->getIloscPunktow() << ".";
+		}
+		if (player1->getIloscPunktow() == player2->getIloscPunktow())
+		{
+			cout << "Gracze maja jednakowa liczbe punktow, wiec mamy remis!" << endl;
+			cout << "Gracz1: " << player1->getIloscPunktow() << ". Gracz2: " << player2->getIloscPunktow() << ".";
+		}
+	}
 }
 
-void Rozgrywka::turaGracza(Gracz *player)
+void Rozgrywka::ruchGracza(Gracz *player)
 {
 	int x, y;
-	bool wykonanyRuch = false;
+	
 	x = player->getX();
 	y = player->getY();
 	int ch = _getch();
+	bool wykonanyRuch = false;
+
 	if (ch == 224) 
 	{
-		ch = _getch();
 		while (wykonanyRuch == false)
 		{
+			ch = _getch();
 			if (ch == 72 && plansza->getPole(x - 1, y)->getSkrot() != ToChar(Skaly))
 			{
-				player->setX(x - 1);
-				wykonanyRuch = true;
+				if (plansza->getPole(x - 1, y)->getSkrot() == ToChar(Woda) && player->getPunktyRuchu() > 1)
+				{
+					player->zmienPunktyRuchu(-2);
+					player->setX(x - 1);
+					wykonanyRuch = true;
+				}
+				if (plansza->getPole(x - 1, y)->getSkrot() == ToChar(Polana))
+				{
+					player->zmienPunktyRuchu(-1);
+					player->setX(x - 1);
+					wykonanyRuch = true;
+				}
+				
 			}
 			else
 			{
 				if (ch == 80 && plansza->getPole(x + 1, y)->getSkrot() != ToChar(Skaly))
 				{
-					player->setX(x + 1);
-					wykonanyRuch = true;
+					if (plansza->getPole(x + 1, y)->getSkrot() == ToChar(Woda) && player->getPunktyRuchu() > 1)
+					{
+						player->zmienPunktyRuchu(-2);
+						player->setX(x + 1);
+						wykonanyRuch = true;
+					}
+					if (plansza->getPole(x + 1, y)->getSkrot() == ToChar(Polana))
+					{
+						player->zmienPunktyRuchu(-1);
+						player->setX(x + 1);
+						wykonanyRuch = true;
+					}
+					
 				}
 				else
 				{
 					if (ch == 77 && plansza->getPole(x, y + 1)->getSkrot() != ToChar(Skaly))
 					{
-						player->setY(y + 1);
-						wykonanyRuch = true;
+						if (plansza->getPole(x, y + 1)->getSkrot() == ToChar(Woda) && player->getPunktyRuchu() > 1)
+						{
+							player->zmienPunktyRuchu(-2);
+							player->setY(y + 1);
+							wykonanyRuch = true;
+						}
+						if (plansza->getPole(x, y + 1)->getSkrot() == ToChar(Polana))
+						{
+							player->zmienPunktyRuchu(-1);
+							player->setY(y + 1);
+							wykonanyRuch = true;
+						}
+						
 					}
 					else
 					{
 						if (ch == 75 && plansza->getPole(x, y - 1)->getSkrot() != ToChar(Skaly))
 						{
-							player->setY(y - 1);
-							wykonanyRuch = true;
+							if (plansza->getPole(x, y - 1)->getSkrot() == ToChar(Woda) && player->getPunktyRuchu() > 1)
+							{
+								player->zmienPunktyRuchu(-2);
+								player->setY(y - 1);
+								wykonanyRuch = true;
+							}
+							if (plansza->getPole(x, y - 1)->getSkrot() == ToChar(Polana))
+							{
+								player->zmienPunktyRuchu(-1);
+								player->setY(y - 1);
+								wykonanyRuch = true;
+							}
+							
 						}
 						else
 						{
@@ -106,16 +233,33 @@ void Rozgrywka::turaGracza(Gracz *player)
 				}
 			}
 		}
+		
 	}
 	else 
 	{
-		cout << char(ch) << '\n';
+		if (ch == 113)
+		{
+			wykonanyRuch = true;
+			czyDalej = 'q';
+		}
 	}
+
 	system("cls");
 	plansza->przekazGracza(player);
 	cout << endl << endl;
 	plansza->wyswietlPlansze();
+	x = player->getX();
+	y = player->getY();
+	if (plansza->getPole(x, y)->getCzyJestPrzedmiot() == true)
+	{
+		player->zmienIloscPunktow(plansza->getPole(x, y)->getPrzedmiot().getIloscPunktow());
+		cout << "Na polu, na ktore wszedles/as znajdowal sie: " << plansza->getPole(x, y)->getPrzedmiot().getNazwa();
+		plansza->getPole(x, y)->zmienCzyJestPrzedmiot(false);
+	}
+	if (player1->getX()==player2->getX() && player1->getY() == player2->getY())
+	{
+		koniecRozgrywki = true;
+	}
 
 }
-
 

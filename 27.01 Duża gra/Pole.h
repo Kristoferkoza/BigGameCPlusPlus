@@ -23,7 +23,9 @@ public:
 	string getNazwa();
 	string getOpis();
 	Kolor getKolor();
+	Przedmiot getPrzedmiot();
 	bool getCzyJestPrzedmiot();
+	void zmienCzyJestPrzedmiot(bool zmiana);
 };
 
 #endif

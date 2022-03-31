@@ -27,6 +27,8 @@ public:
 	int getY();
 	int getID();
 	int czyJestGracz(int _x, int _y);
+	void zmienPunktyRuchu(int a);
+	void zmienIloscPunktow(int a);
 };
 
 #endif
