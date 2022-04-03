@@ -11,37 +11,37 @@ using namespace std;
 Przedmiot::Przedmiot()
 {
 	int m;
-	m = rand() % 8 + 1;
+	m = rand() % 15 + 1;
 
-	if (m == 1)
+	if (m == 1 || m == 2)
 	{
 		rzecz = Miecz;
 	}
-	if (m == 2)
+	if (m == 3 || m == 4)
 	{
 		rzecz = Zbroja;
 	}
-	if (m == 3)
+	if (m == 5 || m == 6 || m == 7)
 	{
 		rzecz = Napoj;
 	}
-	if (m == 4)
+	if (m == 8 || m == 9 || m == 10)
 	{
 		rzecz = Truskawki;
 	}
-	if (m == 5)
+	if (m == 11)
 	{
 		rzecz = Diament;
 	}
-	if (m == 6)
+	if (m == 12 || m == 13)
 	{
 		rzecz = Kolce;
 	}
-	if (m == 7)
+	if (m == 14)
 	{
 		rzecz = Wojownik;
 	}
-	if (m == 8)
+	if (m == 15)
 	{
 		rzecz = LZwierze;
 	}

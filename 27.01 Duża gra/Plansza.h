@@ -21,6 +21,7 @@ public:
 	Pole* getPole(int _x, int _y);
 	void przekazGraczy(Gracz* gracz1_, Gracz* gracz2_);
 	void przekazGracza(Gracz* gracz_);
+	int getRozmiar();
 };
 
 #endif

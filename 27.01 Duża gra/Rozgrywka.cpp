@@ -111,31 +111,44 @@ void Rozgrywka::startRozgrywki()
 		}
 		player->zmienPunktyRuchu(5);
 	}
-	if (player1->getIloscPunktow() >= 20)
+	if (player1->getIloscPunktow() >= 20 && player1->getIloscPunktow() > player2->getIloscPunktow())
 	{
-		cout << endl << "Gracz 1 wygrywa!";
+		cout << endl << player1->getNazwa() << " wygrywa!" << endl;
+		cout << player1->getNazwa() << ": " << player1->getIloscPunktow() << ". " << player2->getNazwa() << ": " << player2->getIloscPunktow() << ".";
 	}
-	if (player2->getIloscPunktow() >= 20)
+	else
 	{
-		cout << endl << "Gracz 2 wygrywa!";
+		if (player2->getIloscPunktow() >= 20 && player1->getIloscPunktow() < player2->getIloscPunktow())
+		{
+			cout << endl << player2->getNazwa() << " wygrywa!" << endl;
+			cout << player1->getNazwa() << ": " << player1->getIloscPunktow() << ". " << player2->getNazwa() << ": " << player2->getIloscPunktow() << ".";
+		}
+		else
+		{
+			cout << endl << "Mamy remis!" << endl;
+			cout << player1->getNazwa() << ": " << player1->getIloscPunktow() << ". " << player2->getNazwa() << ": " << player2->getIloscPunktow() << ".";
+		}
 	}
+	
+
+
 	if (koniecRozgrywki == true)
 	{
 		cout << endl << "Walka!" << endl;
 		if (player1->getIloscPunktow() > player2->getIloscPunktow())
 		{
-			cout << "Gracz 1 wygrywa pojedynek, wiec zostaje zwyciezca!" << endl;
-			cout << "Gracz1: " << player1->getIloscPunktow() << ". Gracz2: " << player2->getIloscPunktow() << ".";
+			cout << player1->getNazwa() << " wygrywa pojedynek, wiec zostaje zwyciezca!" << endl;
+			cout << player1->getNazwa() << ": " << player1->getIloscPunktow() << ". " << player2->getNazwa() << ": " << player2->getIloscPunktow() << ".";
 		}
 		if (player1->getIloscPunktow() < player2->getIloscPunktow())
 		{
-			cout << "Gracz 2 wygrywa pojedynek, wiec zostaje zwyciezca!" << endl;
-			cout << "Gracz1: " << player1->getIloscPunktow() << ". Gracz2: " << player2->getIloscPunktow() << ".";
+			cout << player2->getNazwa() << " wygrywa pojedynek, wiec zostaje zwyciezca!" << endl;
+			cout << player1->getNazwa() << ": " << player1->getIloscPunktow() << ". " << player2->getNazwa() << ": " << player2->getIloscPunktow() << ".";
 		}
 		if (player1->getIloscPunktow() == player2->getIloscPunktow())
 		{
 			cout << "Gracze maja jednakowa liczbe punktow, wiec mamy remis!" << endl;
-			cout << "Gracz1: " << player1->getIloscPunktow() << ". Gracz2: " << player2->getIloscPunktow() << ".";
+			cout << player1->getNazwa() <<": " << player1->getIloscPunktow() << ". " << player2->getNazwa() << ": " << player2->getIloscPunktow() << ".";
 		}
 	}
 }
@@ -154,7 +167,7 @@ void Rozgrywka::ruchGracza(Gracz *player)
 		while (wykonanyRuch == false)
 		{
 			ch = _getch();
-			if (ch == 72 && plansza->getPole(x - 1, y)->getSkrot() != ToChar(Skaly))
+			if (ch == 72 && x != 0 && plansza->getPole(x - 1, y)->getSkrot() != ToChar(Skaly))
 			{
 				if (plansza->getPole(x - 1, y)->getSkrot() == ToChar(Woda) && player->getPunktyRuchu() > 1)
 				{
@@ -172,7 +185,7 @@ void Rozgrywka::ruchGracza(Gracz *player)
 			}
 			else
 			{
-				if (ch == 80 && plansza->getPole(x + 1, y)->getSkrot() != ToChar(Skaly))
+				if (ch == 80 && x != (plansza->getRozmiar()-1) && plansza->getPole(x + 1, y)->getSkrot() != ToChar(Skaly))
 				{
 					if (plansza->getPole(x + 1, y)->getSkrot() == ToChar(Woda) && player->getPunktyRuchu() > 1)
 					{
@@ -190,7 +203,7 @@ void Rozgrywka::ruchGracza(Gracz *player)
 				}
 				else
 				{
-					if (ch == 77 && plansza->getPole(x, y + 1)->getSkrot() != ToChar(Skaly))
+					if (ch == 77 && y != (plansza->getRozmiar() - 1) && plansza->getPole(x, y + 1)->getSkrot() != ToChar(Skaly))
 					{
 						if (plansza->getPole(x, y + 1)->getSkrot() == ToChar(Woda) && player->getPunktyRuchu() > 1)
 						{
@@ -208,7 +221,7 @@ void Rozgrywka::ruchGracza(Gracz *player)
 					}
 					else
 					{
-						if (ch == 75 && plansza->getPole(x, y - 1)->getSkrot() != ToChar(Skaly))
+						if (ch == 75 && y != 0 && plansza->getPole(x, y - 1)->getSkrot() != ToChar(Skaly))
 						{
 							if (plansza->getPole(x, y - 1)->getSkrot() == ToChar(Woda) && player->getPunktyRuchu() > 1)
 							{

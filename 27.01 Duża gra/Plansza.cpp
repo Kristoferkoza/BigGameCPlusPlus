@@ -123,3 +123,8 @@ void Plansza::przekazGracza(Gracz* gracz_)
 		gracz2 = gracz_;
 	}
 }
+
+int Plansza::getRozmiar()
+{
+	return a;
+}

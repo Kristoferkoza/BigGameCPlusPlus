@@ -88,7 +88,7 @@ int main()
     cout << endl;
     cout << endl;
 
-    Rozgrywka rozgrywka1(20, "Adam", "Kamil");
+    Rozgrywka rozgrywka1(20, "Julcia", "Krzys");
     rozgrywka1.startRozgrywki();
 
     return 0;
