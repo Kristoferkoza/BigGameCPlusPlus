@@ -1,0 +1,45 @@
+53
+Z Z Z S Z S Z V S S Z Z S S Z S S S V S 
+S S S S S Z Z Z Z Z V S S Z Z Z S S Z Z 
+Z Z Z Z Z V V V S S S S S S Z Z V Z S S 
+Z S Z V Z Z S S V S S S V S Z Z Z S V S 
+S S S S Z Z S Z S S S S S S Z Z V Z S V 
+Z Z S S Z S S V S S Z S Z S Z Z S V V S 
+Z Z S S S Z S S Z S V Z Z S V S Z V V Z 
+S S S S S S S S Z V S S S S S S Z S S Z 
+S Z Z Z Z V Z Z Z S S Z S Z S Z Z S S S 
+S Z S Z S S S S S S Z Z S S V S S S Z Z 
+Z S V S S Z Z Z V V S S Z V Z S S V S S 
+V S V S Z S S V V S Z V S Z V V Z Z S S 
+S Z S S Z S Z V S Z Z S S Z S S S Z Z S 
+S S V V Z Z S Z S Z S S Z Z S S Z S S Z 
+S S S S S V Z S V Z S V S S S S V V V Z 
+Z S S S V S Z V Z Z Z V Z V Z V Z S S S 
+Z S Z S S S Z S V S V V S V Z Z S S S S 
+S S Z S Z S V S S S S S V Z V S S S S V 
+S S Z S Z S S S S S V S S S Z S Z S Z S 
+Z S S S V Z V Z Z S S S S S S V S S S Z 
+
+0 0 0 0 0 0 0 0 O N 0 0 0 0 0 0 0 G 0 0 
+0 N 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 Q 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 N 0 0 0 0 0 0 0 
+0 O 0 0 0 0 0 0 0 Q 0 0 0 0 0 0 0 0 0 0 
+0 G C 0 0 0 Q 0 0 0 O Z W 0 0 0 0 0 W 0 
+0 0 Q W 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+C P 0 O 0 0 P N 0 0 0 0 P Z Q 0 0 0 0 0 
+C 0 0 0 0 0 0 0 0 Q 0 0 0 0 P 0 0 P P 0 
+0 0 O 0 0 0 0 0 W 0 0 0 P Z 0 0 0 0 0 0 
+0 0 0 0 W 0 0 0 0 0 0 0 0 0 0 0 0 0 0 Z 
+0 N 0 0 0 0 O 0 0 Z 0 0 Q 0 0 0 0 0 W 0 
+0 0 W 0 0 0 0 0 C 0 0 0 0 0 0 0 P 0 0 0 
+0 0 0 0 0 0 W 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 P 0 0 W 0 0 0 0 0 0 0 0 W 0 0 0 0 0 0 
+0 0 0 P 0 Q 0 0 0 0 0 0 0 0 0 0 0 W 0 0 
+0 0 0 0 O 0 0 0 0 C 0 0 Q 0 0 0 O Q 0 0 
+0 N 0 G 0 G 0 0 0 C 0 Q 0 0 0 W 0 Q 0 0 
+P Q 0 0 0 0 0 0 0 W 0 N 0 0 0 G 0 0 0 O 
+0 Z 0 C 0 0 0 0 0 0 W 0 0 0 0 0 Q 0 Q 0 
+
+4 Nucbv 3 8 45 48
+5 Dohn 3 8 41 42

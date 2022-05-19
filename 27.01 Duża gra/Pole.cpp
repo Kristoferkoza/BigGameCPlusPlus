@@ -52,6 +52,28 @@ Pole::Pole()
 
 }
 
+Pole::Pole(string litera)
+{
+	if (litera=="P")
+	{
+		rodzaj = Polana;
+		opis = "Stoisz teraz na polanie (P).";
+		kolor = Zielony;
+	}
+	if (litera == "W")
+	{
+		rodzaj = Woda;
+		opis = "Jesteœ teraz w wodzie (W).";
+		kolor = Niebieski;
+	}
+	if (litera == "S")
+	{
+		rodzaj = Skaly;
+		opis = "Na skaly nie mozna wejsc (S).";
+		kolor = Bialy;
+	}
+}
+
 char Pole::getSkrot()
 {
 	return ToChar(rodzaj);
@@ -85,4 +107,9 @@ Przedmiot Pole::getPrzedmiot()
 void Pole::zmienCzyJestPrzedmiot(bool zmiana)
 {
 	czyJestPrzedmiot = zmiana;
+}
+
+void Pole::ustawPrzedmiot(string skrot)
+{
+	przedmiot = new Przedmiot(skrot);
 }

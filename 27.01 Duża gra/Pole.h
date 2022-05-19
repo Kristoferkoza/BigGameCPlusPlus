@@ -19,6 +19,7 @@ private:
 	Przedmiot* przedmiot;
 public:
 	Pole();
+	Pole(string litera);
 	char getSkrot();
 	string getNazwa();
 	string getOpis();
@@ -26,6 +27,7 @@ public:
 	Przedmiot getPrzedmiot();
 	bool getCzyJestPrzedmiot();
 	void zmienCzyJestPrzedmiot(bool zmiana);
+	void ustawPrzedmiot(string skrot);
 };
 
 #endif

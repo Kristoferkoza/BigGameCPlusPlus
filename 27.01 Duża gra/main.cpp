@@ -88,7 +88,9 @@ int main()
     cout << endl;
     cout << endl;
 
-    Rozgrywka rozgrywka1(20, "Julcia", "Krzys");
+    Rozgrywka rozgrywka1(20, "Krzys", "Alek");
+    //rozgrywka1.zapiszGre();
+    //rozgrywka1.wczytajGre();
     rozgrywka1.startRozgrywki();
 
     return 0;

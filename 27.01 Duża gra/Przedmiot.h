@@ -15,6 +15,7 @@ private:
 	Rzecz rzecz;
 public:
 	Przedmiot();
+	Przedmiot(string skrot);
 	char getSymbol();
 	string getNazwa();
 	int getIloscPunktow();

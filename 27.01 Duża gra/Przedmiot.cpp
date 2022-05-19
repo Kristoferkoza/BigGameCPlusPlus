@@ -47,6 +47,42 @@ Przedmiot::Przedmiot()
 	}
 }
 
+Przedmiot::Przedmiot(string skrot)
+{
+	if (skrot == "M")
+	{
+		rzecz = Miecz;
+	}
+	if (skrot == "Z")
+	{
+		rzecz = Zbroja;
+	}
+	if (skrot == "N")
+	{
+		rzecz = Napoj;
+	}
+	if (skrot == "T")
+	{
+		rzecz = Truskawki;
+	}
+	if (skrot == "D")
+	{
+		rzecz = Diament;
+	}
+	if (skrot == "K")
+	{
+		rzecz = Kolce;
+	}
+	if (skrot == "W")
+	{
+		rzecz = Wojownik;
+	}
+	if (skrot == "L")
+	{
+		rzecz = LZwierze;
+	}
+}
+
 char Przedmiot::getSymbol()
 {
 	return ToChar(rzecz);

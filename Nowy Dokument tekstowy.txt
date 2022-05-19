@@ -1,0 +1,20 @@
+Plansza rodzaj pola
+Plansza przedmioty
+Gracze (imiona, pkt, polozenie)
+
+
+4
+P W S P
+P W S P
+P W S P
+P W S P
+
+L W 0 M
+0 0 K 0
+D K Z 0
+0 0 T T
+
+player1 32 10 1 1 1
+player2 50 5 3 2 2  
+
+

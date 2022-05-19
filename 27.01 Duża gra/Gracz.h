@@ -17,6 +17,7 @@ private:
 	int y;
 public:
 	Gracz(string _nazwa, int _x, int _y, int _id);
+	Gracz(string _nazwa, int _x, int _y, int _id, int _punktyRuchu, int punkty);
 	string getNazwa();
 	int getIloscPunktow();
 	int getPunktyRuchu();

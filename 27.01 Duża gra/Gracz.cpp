@@ -14,6 +14,16 @@ Gracz::Gracz(string _nazwa, int _x, int _y, int _id)
 	id = _id;
 }
 
+Gracz::Gracz(string _nazwa, int _x, int _y, int _id, int _punktyRuchu, int punkty)
+{
+	nazwa = _nazwa;
+	iloscPunktow = punkty;
+	punktyRuchu = _punktyRuchu;
+	x = _x;
+	y = _y;
+	id = _id;
+}
+
 string Gracz::getNazwa()
 {
 	return nazwa;

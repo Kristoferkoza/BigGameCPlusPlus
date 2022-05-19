@@ -11,24 +11,27 @@
 
 using namespace std;
 
-Plansza::Plansza(int _a)
+Plansza::Plansza(int _a, bool tworz)
 {
 	a = _a;
-	tablica = new Pole ** [a];
+	tablica = new Pole * *[a];
 	for (int i = 0; i < a; i++)
 	{
-		tablica[i] = new Pole*[a];
+		tablica[i] = new Pole * [a];
 	}
 
-	for (int i = 0; i < a; i++)
+	if (tworz)
 	{
-		for (int j = 0; j < a; j++)
+
+		for (int i = 0; i < a; i++)
 		{
-			Pole *pole1 = new Pole;
-			tablica[i][j] = pole1;
+			for (int j = 0; j < a; j++)
+			{
+				Pole* pole1 = new Pole;
+				tablica[i][j] = pole1;
+			}
 		}
 	}
-
 	//cout << "TEST: " << tablica[0][0]->getNazwa();
 		
 }
@@ -127,4 +130,9 @@ void Plansza::przekazGracza(Gracz* gracz_)
 int Plansza::getRozmiar()
 {
 	return a;
+}
+
+void Plansza::ustawPole(Pole* pole, int x, int y)
+{
+	tablica[x][y] = pole;
 }

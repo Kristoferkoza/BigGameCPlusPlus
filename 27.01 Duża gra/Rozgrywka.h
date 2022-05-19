@@ -16,10 +16,18 @@ private:
 	Gracz* player2;
 	char czyDalej;
 	bool koniecRozgrywki;
+	string szyfrCS(string wyraz);
+	char szyfrCC(char litera);
+	string szyfrCI(int liczba);
+	string odczytCS(string wyraz);
+	char odczytCC(char litera);
+	int odczytCI(string liczba);
 public:
 	Rozgrywka(int n, string _nazwa1, string _nazwa2);
 	void startRozgrywki();
 	void ruchGracza(Gracz* player);
+	void zapiszGre();
+	void wczytajGre();
 };
 
 #endif
